@@ -1,0 +1,66 @@
+
+<!-- Created by YHA Computer Training Center  -->
+
+<!-- 
+    1. Using JavaScript Expression
+    2. Calling function
+    3. directives
+    4. Arguments
+    5. Class and Style Bindings
+    6. Conditional Rendering 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 Solution</title>
+    <!-- Bootstrap Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Fontawesome Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="" id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col aligns-center mt-5">
+                    <div class="card bg-light shadow-sm">
+                        <div class="card-header">
+                            <div v-bind:class="[color, fontSize3, 'fw-semibold'] ">GAME RECORD</div>
+                        </div>
+                        <div class="card-body">
+                            <span class="fs-5"> Name : {{ name }} </span> 
+                            <hr>
+                            <span class="fs-5"> Token: {{ mark }} {{ mark > 0 ? "Points" : "Point" }} </span>
+
+                            <div :class="[mark >= 40 ? 'alert-success' : 'alert-danger', 'alert', 'mt-3']">
+                                <span :class="['fw-semibold', mark >= 40 ? 'text-success' : 'text-danger']"> {{ mark >= 40 ? "You Won" : "You Lose" }} </span>
+                            </div>
+
+                            <div class="text-center">
+                                <span v-if="mark >= 40" class="text-secondary">Congradulation, you won the game</span>
+                                <span v-else class="text-secondary">Sorry, you lose, please try again</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                color: "text-secondary",
+                fontSize3: 'fs-3',
+                name: "Lucas",
+                mark: 40,
+            },
+        });
+    </script>
+</body>
+</html>
